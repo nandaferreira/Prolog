@@ -1,0 +1,14 @@
+%imc(nome, peso, altura).
+imc(joao, 105, 1.78).
+imc(jose, 82, 1.85).
+imc(antonio, 98, 1.70).
+imc(maria, 62, 1.69).
+imc(_,_,_).
+
+indiceMassa(X,I) :- imc(X, Peso, Altura), (I is (Peso/Altura^2)).
+
+calcular(Indice) :- write('Digite o nome'), read(Nome), 
+       		 write('Digite o peso'), read(Peso),
+             write('Digite a altura'), read(Altura),
+    		 indiceMassa(Nome,Indice).
+		     

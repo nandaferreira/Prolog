@@ -1,0 +1,31 @@
+mulher(ana).
+mulher(julia).
+mulher(patricia).
+mulher(alana).
+homem(matheus).
+homem(rafael).
+homem(carlos).
+homem(joao).
+gerou(ana, patricia).
+gerou(ana, carlos).
+gerou(matheus, patricia).
+gerou(matheus, carlos).
+gerou(julia,alana).
+gerou(julia, joao).
+gerou(rafael, alana).
+gerou(rafael, joao).
+
+%a
+ehFeliz(X) :- gerou(X,Y).
+
+%b)
+casal(X,Y) :- gerou(X,Z), gerou(Y,Z).
+
+
+
+
+
+
+
+
+

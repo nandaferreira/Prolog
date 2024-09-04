@@ -1,0 +1,30 @@
+aluno(carla, cálculo, 100).
+aluno(fernanda, sistema,90).
+aluno(letícia, dados, 80).
+aluno(isabel, dados, 70).
+aluno(maria, cálculo, 60).
+aluno(isadora, sistemas, 100).
+aluno(anna, cálculo, 80).
+aluno(paloma, dados, 50).
+aluno(beatriz, sistemas, 70).
+aluno(ariel, sistemas, 60).
+aluno(bruna, dados, 90).
+aluno(clara, sistemas, 90).
+aluno(pâmela, sistemas,60).
+aluno(samira, dados, 100).
+aluno(janice, dados, 80).
+aluno(vitória, dados, 70).
+aluno(joy, cálculo, 85).
+aluno(lana, cálculo, 67).
+aluno(olivia, dados, 40).
+
+professor(elisa, cálculo, 3).
+professor(camila, dados, 2).
+professor(julia, sistemas, 1).
+
+nota(NomeAluno, Disciplina, Valor) :-
+    	(   aluno(NomeAluno, Disciplina, Valor), %pega a nota do aluno
+        	professor(_, Disciplina, Peso), %pega o peso da disciplina
+        	NotaAluno is (Valor*Peso)/5,
+        	write(NotaAluno)
+    	).

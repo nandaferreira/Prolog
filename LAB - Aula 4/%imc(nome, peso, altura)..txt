@@ -1,0 +1,8 @@
+%imc(nome, peso, altura).
+imc(joao, 105, 1.78).
+imc(jose, 82, 1.85).
+imc(antonio, 98, 1.70).
+imc(maria, 62, 1.69).
+
+indiceMassa(X,Y) :- imc(X, Peso, Altura), (Y is (Peso/Altura^2)).
+
