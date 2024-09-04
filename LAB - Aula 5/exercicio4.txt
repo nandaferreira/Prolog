@@ -1,0 +1,29 @@
+%4) Construa uma base de dados sobre carros e seus proprietários com pelo menos dez estruturas do tipo: 
+%dono(jose, carro(onix, azul, passeio)), onde a lista de palavras chave pode ter três elementos.
+
+dono(nanda, carro(gol, prata, faculdade)).
+dono(joao, carro(hb20, preto, trabalho)).
+dono(carlos, carro(corolla, cinza, viagem)).
+dono(janice, carro(celta, vermelho, trabalho)).
+dono(anita, carro(uno, verde, viagem)).
+dono(samuel, carro(ka, branco, trabalho)).
+dono(patricia, carro(compass, preto, viagem)).
+dono(juliana, carro(renegade, azul, faculdade)).
+dono(antônio, carro(fusca, preto, viagem)).
+dono(ana, carro(santana, branco, faculdade)).
+    
+%Maria é dona de alguma coisa? 
+fulano_dono(Nome) :- dono(Nome, carro(_, _, _)).
+
+%João é dono de quê? 
+dono_de(Nome, Carro) :- dono(Nome, carro(Carro,_,_)).
+
+%Quem é dono de um carro (de qualquer marca) preto? 
+carro_preto(Nome) :- dono(Nome, carro(_, preto, _)).
+
+%Existe alguém que seja dono de algum carro (de qualquer cor e marca)? 
+existe_dono(Carro) :- dono(_, carro(Carro,_,_)).
+
+%Quais são as cores do carros de trabalho?
+carro_trabalho(Cor) :- dono(_, carro(_, Cor, trabalho)).
+

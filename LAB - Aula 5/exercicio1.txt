@@ -1,0 +1,24 @@
+%estrada(Número,Origem,Destino)
+%a)
+
+estrada(1, a, b).
+estrada(2, a, d).
+estrada(3, b, c).
+estrada(4, c, d).
+estrada(5, b, e).
+estrada(6, c, f).
+estrada(7, d, f).
+estrada(8, e, f).
+
+%b) Defina o predicado rota(A,B,R), que determina uma rota R (lista de estradas) que leva da cidade A até a cidade B.
+
+rota(A, B, R) :- estrada(R, A, B).
+
+%c) Defina um predicado rotac(R, A) que determina uma rota R (listas de Estradas) que chegam a cidade A
+
+rotac(R, a) :- estrada(R,_,a).
+
+%d) Defina um predicado rotas(R, A) que determina uma rota R (listas de Estradas) que saem da cidade A
+
+rotas(R, a) :- estrada(R, a, _).
+

@@ -1,0 +1,61 @@
+%2) Construa uma base de dados sobre livros com pelo menos dez estruturas do tipo: 
+
+%livro(nome('C completo e total'), autor('Schildt'), pal_chave([linguagemc, programacao, computacao])).
+%onde a lista de palavras chave pode ter três elementos. 
+
+livro(nome('Cálculo'), autor('Guidorrizi'), pal_chave([matemática, exatas, números])).
+livro(nome('Coraline'), autor('Gaiman'), pal_chave([fantasia, aventura, infantil])).
+livro(nome('Água Viva'), autor('Lispector'), pal_chave([clássico, brasileiro, psicológico])).
+livro(nome('O Capital'), autor('Marx'), pal_chave([política, economia, educação])).
+livro(nome('O Cortiço'), autor('Azevedo'), pal_chave([clássico, brasileiro, história])).
+livro(nome('Aurora'), autor('Ceribelli'), pal_chave([autoajuda, brasileiro, mulher])).
+livro(nome('Iracema'), autor('Alencar'), pal_chave([clássico, brasileiro, romance])).
+livro(nome('Percy Jackson'), autor('Riordan'), pal_chave([infantil, fantasia, mitologia])).
+livro(nome('Tudo é Rio'), autor('Madeira'), pal_chave([psicológico, ficção, brasileiro])).
+livro(nome('O Segundo Sexo'), autor('Beauvoir'), pal_chave([política, mulher, francês])). 
+
+%a) Escreva consultas para encontrar: 
+
+%nome do autor, dado o nome do livro
+
+nome_autor(Nome) :- 
+    (   livro(nome(Nome), autor(Autor), pal_chave([_, _, _])),
+        write(Autor)
+    ).
+
+% nome do livro, dado o nome do autor 
+
+nome_livro(Autor) :-
+    (   livro(nome(Nome), autor(Autor), pal_chave([_, _, _])),
+        write(Nome)
+    ).
+
+%as palavras chave, dado o nome do livro 
+
+palavras_chave(Nome) :-
+    (   livro(nome(Nome), autor(_), pal_chave([P1, P2, P3])),
+        write(P1),
+        nl,
+        write(P2),
+        nl,
+        write(P3)
+    ).
+
+%nome do autor e o nome do livro, dada uma palavra chave.
+
+autor_livro(Palavra) :-
+    (   livro(nome(Nome), autor(Autor), pal_chave([Palavra, _, _])), 
+    	write(Nome),
+        nl,
+        write(Autor),
+        nl; 
+    	livro(nome(Nome), autor(Autor), pal_chave([_, Palavra, _])),
+        write(Nome),
+        nl,
+        write(Autor),
+        nl; 
+    	livro(nome(Nome), autor(Autor), pal_chave([_, _, Palavra])),
+        write(Nome),
+        nl,
+        write(Autor)
+    ).
