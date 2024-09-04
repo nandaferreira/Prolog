@@ -1,0 +1,42 @@
+%times_VCT(Time, Ano, País, Títulos, Treinos, Patrocinador).
+
+times_VCT('loud', 2019, 'brasil', 10, 'segunda', 'itaú').
+times_VCT('mibr', 2003, 'brasil', 7, 'terça', 'itaú').
+times_VCT('sentinels', 2016, 'estados unidos', 5, 'quarta', 'starforge').
+times_VCT('leviatán', 2020, 'argentina', 8, 'quinta', 'logitech').
+times_VCT('furia', 2017, 'brasil', 9, 'sexta', 'itaú').
+times_VCT('kru', 2020, 'argentina', 4, 'segunda', 'redbull').
+times_VCT('100 thieves', 2017, 'estados unidos', 4, 'terça', 'redbull').
+times_VCT('cloud9', 2020, 'estados unidos', 6, 'quarta', 'logitech').
+times_VCT('evilG', 2015, 'canadá', 5, 'quinta', 'monster').
+times_VCT('nrg', 2020, 'canadá', 6, 'sexta', 'monster').
+
+%Em qual ano time X foi fundado?
+ano_fundacao(Time) :- times_VCT(Time, Ano,_,_,_,_), write(Ano).
+
+%Time X é brasileiro?
+time_brasileiro(Time) :- times_VCT(Time,_,'brasil',_,_,_).
+
+% X é patrocinador de time Y?
+patrocina(Patrocinador, Time) :- times_VCT(Time,_,_,_,_,Patrocinador). 
+
+%Quais os times que treinam na segunda?
+treino_segunda() :-
+    (   times_VCT(Time,_,_,_,'segunda',_),
+        write(Time),
+        nl,
+        fail
+    ).
+
+%Qual time tem X títulos?
+busca_por_titulo(Titulos) :- times_VCT(Nome,_,_,Titulos,_,_), write(Nome).
+
+%Quais times fundados antes de 2017?
+antes_2017() :-
+    (   times_VCT(Time,Ano,_,_,_,_),
+        Ano < 2017,
+        write(Time),
+        nl,
+        fail
+    ).
+    

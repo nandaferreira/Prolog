@@ -1,0 +1,56 @@
+Considere as relações ao lado. Pede-se:
+​ - Defina a base de conhecimento​. 
+ - Defina regras para: pai, mãe, tio, tia, irmão, irmã, irmão, avô, avó. ​
+
+
+
+mulher(ana).
+mulher(eva).
+mulher(bia).
+mulher(clô).
+mulher(lia).
+mulher(gal).
+
+homem(ivo).
+homem(gil).
+homem(raí).
+homem(ary).
+homem(noé).
+
+gerou(ana, eva).
+gerou(ivo, eva).
+gerou(bia, raí).
+gerou(bia, clô).
+gerou(bia, ary).
+gerou(gil, raí).
+gerou(gil, clô).
+gerou(gil, ary).
+gerou(eva, noé).
+gerou(raí, noé).
+gerou(ary, gal).
+gerou(lia, gal).
+
+
+pai(X, Y) :- gerou(X, Y), homem(X). 
+
+mãe(X, Y) :- gerou(X, Y), mulher(X). 
+
+filho(X, Y):- gerou(Y, X), homem(X).
+
+filha(X, Y) :- gerou(Y, X), mulher(X).
+
+irmãos(X, Y) :- pai(Z, X), pai(Z,Y), mãe(W,X), mãe(W, Y).
+
+irmão(X, Y) :- pai(Z, X), pai(Z,Y), mãe(W,X), mãe(W, Y), homem(X).
+
+irmã(X, Y) :- pai(Z, X), pai(Z,Y), mãe(W,X), mãe(W, Y), mulher(X).
+    
+tio(X, Y) :- gerou(Z, Y), irmão(X, Z), homem(X).
+
+tia(X, Y) :- gerou(Z, Y), irmã(X, Z), mulher(X).
+
+avô(X, Y) :- gerou(Z, Y), filho(Z, X), homem(X).
+avô(X,Y) :- gerou(Z, Y), filha(Z,X), homem(X).
+
+avó(X, Y) :- gerou(Z, Y), filho(Z, X), mulher(X).
+avó(X,Y) :- gerou(Z, Y), filha(Z, X), mulher(X).

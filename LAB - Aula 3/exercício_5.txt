@@ -1,0 +1,85 @@
+%filme(Titulo, Gênero, Diretor, Ano, Min)
+
+filme('amnésia', 'suspense', 'nolan', 2000, 113).
+filme('babel', 'drama', 'inarritu', 2006, 142).
+filme('capote', 'drama', 'miller', 2005, 98).
+filme('casablanca', 'romance', 'curtiz', 1942, 102).
+filme('matrix', 'ficção', 'wachowsk', 1999, 136).
+filme('rebecca', 'suspense', 'hitchcock', 1940, 130).
+filme('shrek', 'aventura', 'adamson', 2001, 90).
+filme('sinais', 'ficção', 'shymalan', 2002, 106).
+filme('spartacus', 'ação', 'kubrik', 1960, 184).
+filme('superman', 'aventura', 'donner', 1978, 143).
+filme('titanic', 'romance', 'cameron', 1997, 194).
+filme('tubarão', 'suspense', 'spielberg', 1975, 124).
+filme('volver', 'drama', 'almodóvar', 2006, 121).
+
+% a)
+diretor_filme(Nome, Diretor) :- filme(Nome,_, Diretor, _,_).
+
+% b)
+filmes_suspense() :- 
+    	(   filme(Nome, 'suspense', _, _, _),
+            write(Nome),
+            nl,
+            fail
+        ).
+
+% c)
+filmes_diretor(Diretor) :-
+    (   filme(Nome,_, Diretor, _, _),
+        write(Nome)
+    ).
+
+% d)
+ano_filme(Nome) :-
+    (   filme(Nome,_,_, Ano,_),
+        write(Ano)
+    ).
+
+% e)
+filme_menos_100min() :-
+    (   filme(Nome,_,_,_, Minutos),
+        Minutos < 100,
+        write(Nome),
+        nl,
+        fail
+    ).
+% f)
+filmes_2000_2005() :-
+    (   filme(Nome,_,_,Ano,_),
+        Ano >= 2000,
+        Ano =< 2005,
+        write(Nome),
+        nl,
+        fail
+    ).
+
+% g)
+classico() :- 
+    (   filme(Nome,_,_,Ano,_),
+        Ano < 1980,
+        write(Nome),
+        nl,
+        fail
+    ).
+
+%h)
+genero(Genero) :-
+    	(   filme(Nome,Genero,_,_,_),
+        	write(Nome),
+        	nl,
+        	fail
+    	).
+
+% i) Clássicos de suspense
+
+classicos_suspense() :-
+    (   filme(Nome, suspense,_,Ano,_),
+        Ano < 1980,
+        write(Nome),
+        nl,
+        fail
+    ).
+    
+   

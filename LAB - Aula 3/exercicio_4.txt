@@ -1,0 +1,60 @@
+livro('aurora', 2015, 'marcela ceribelli').
+livro('dom casmurro', 1899, 'machado de assis').
+livro('modernidade líquida', 1999, 'zygmunt bauman').
+livro('angústia', 1936, 'graciliano ramos').
+livro('noites brancas' , 1848, 'fiódor dostoiévski').
+livro('água viva', 1973, 'clarice lispector').
+livro('tudo é rio', 2015, 'carla madeira').
+livro('o ponto zero da revolução', 2019, 'silvia federici').
+livro('ensaio sobre a lucidez', 2004, 'josé saramargo').
+livro('calibã e a bruxa', 2023, 'silvia federici').
+livro('laços de familia', 1960, 'clarice lispector').
+livro('o cortiço', 1890, 'josé de alencar').
+livro('o livro do desassossego', 1982, 'fernando pessoa').
+livro('o pequeno príncipe', 1943, 'antoine de saint-exupéry').
+livro('solitária', 2023, 'eliana alves').
+livro('a mística feminina', 1963, 'betty friedan').
+livro('o capital', 1967, 'karl marx').
+livro('todos os homens são mortais', 1946, 'simone de beauvoir').
+livro('a redoma de vidro', 2015, 'sylvia plath').
+livro('carta ao pai', 1919, 'franz kafka').
+
+%Quais os livros de um determinado autor
+livros_autor(Autor) :-
+    (   livro(Nome,_, Autor),
+        write(Nome),
+        nl,
+        fail
+    ).
+
+%Existe livro em dado ano
+busca_por_ano(Ano) :- livro(_, Ano, _).
+
+%Livros 2015 e 2023
+livro_2015() :- 
+    (   livro(Nome, 2015,_),
+        write(Nome),
+        nl,
+        fail
+    ).
+
+livro_2023() :-
+    (   livro(Nome, 2023,_),
+        write(Nome),
+        nl,
+        fail
+    ).
+
+%Regra consultar qual ano livro X foi publicado
+ano_publicacao(Livro, Ano) :- livro(Livro, Ano, _).
+
+%Regra consultar livros escritos antes de ano X
+livro_antes_de(X) :-
+    (   ano_publicacao(Livro, Ano),
+        Ano < X,
+        write(Livro),
+        nl, %isso é pra separar os nomes dos livros
+        fail %isso cria uma condição para o programa ter que buscar por mais soluções, ai ele vai mostrando na tela até dar false
+    ).
+
+

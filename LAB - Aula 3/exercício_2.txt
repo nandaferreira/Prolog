@@ -1,0 +1,41 @@
+estuda(fabricio, programação).
+estuda(joana, lógica).
+estuda(ana, tcc). 
+estuda(josé, banco).
+estuda(lucas, estrutura).
+estuda(nicolas, lógica).
+estuda(fernanda, tcc).
+estuda(maria, tcc).
+
+aluno(fabricio, ufmg).
+aluno(joana, ufu).
+aluno(ana, ufu).
+aluno(josé, ufu).
+aluno(lucas, ufmg).
+aluno(nicolas, ufu).
+aluno(fernanda, ufu).
+aluno(maria, ufu).
+
+professor(joão, programação).
+professor(clara, lógica).
+professor(roberta, tcc).
+professor(antonio, banco).
+professor(leandro, estrutura).
+
+reitor(beatriz, ufmg).
+reitor(marcos, ufu).
+
+oferta(bcc, programação).
+oferta(bcc, lógica).
+oferta(si, tcc).
+oferta(si, banco).
+oferta(bcc, estrutura).
+
+aluno_professor(X, Y) :- professor(Y, Z), estuda(X, Z).
+aluno_bcc(X, Y) :- estuda(X, Z), oferta(Y, Z).
+aluno_bsi(X, Y) :- estuda(X, Z), oferta(Y,Z).
+aluno_universidade(X, Y) :- aluno(X, Y).
+disciplina_professor(X, Y) :- professor(Y, X).
+professor_universidade(X, Y) :- aluno_professor(Z, X), aluno(Z, Y).
+disciplinas_universidade(X, Y) :- estuda(Z, X), aluno(Z, Y).
+reitor_professor(X, Y) :- professor_universidade(Y, Z), reitor(X, Z).
