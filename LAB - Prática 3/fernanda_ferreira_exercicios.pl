@@ -1,10 +1,10 @@
------------------------------- AULA 3 ------------------------------
+%------------------------------ AULA 3 ------------------------------
 
-(EXC 01)
+(%EXC 01)
 
-Considere as relações ao lado. Pede-se:
-​ - Defina a base de conhecimento​. 
- - Defina regras para: pai, mãe, tio, tia, irmão, irmã, irmão, avô, avó. ​
+%Considere as relações ao lado. Pede-se:
+%​ - Defina a base de conhecimento​. 
+% - Defina regras para: pai, mãe, tio, tia, irmão, irmã, irmão, avô, avó. ​
 
 mulher(ana).
 mulher(eva).
@@ -58,7 +58,7 @@ avó(X, Y) :- gerou(Z, Y), filho(Z, X), mulher(X).
 avó(X,Y) :- gerou(Z, Y), filha(Z, X), mulher(X).
 
 
-(EXC 02)
+%(EXC 02)
 
 estuda(fabricio, programação).
 estuda(joana, lógica).
@@ -103,7 +103,7 @@ disciplinas_universidade(X, Y) :- estuda(Z, X), aluno(Z, Y).
 reitor_professor(X, Y) :- professor_universidade(Y, Z), reitor(X, Z).
 
 
-(EXC 03)
+%(EXC 03)
 
 nota(joao, 5.0).
 nota(jose, 6.0).
@@ -125,7 +125,7 @@ diario(X) :-
     	).
 
 
-(EXC 04)
+%(EXC 04)
 
 livro('aurora', 2015, 'marcela ceribelli').
 livro('dom casmurro', 1899, 'machado de assis').
@@ -187,7 +187,7 @@ livro_antes_de(X) :-
     ).
 
 
-(EXC 05)
+%(EXC 05)
 
 %filme(Titulo, Gênero, Diretor, Ano, Min)
 
@@ -274,7 +274,7 @@ classicos_suspense() :-
     ).
     
    
-(EXC 06)
+%(EXC 06)
 
 %times_VCT(Time, Ano, País, Títulos, Treinos, Patrocinador).
 
@@ -320,9 +320,9 @@ antes_2017() :-
 
 
 
------------------------------- AULA 4 ------------------------------
+%------------------------------ AULA 4 ------------------------------
 
-(EXC 01)
+%(EXC 01)
 
 mulher(ana).
 mulher(julia).
@@ -349,7 +349,7 @@ casal(X,Y) :- gerou(X,Z), gerou(Y,Z).
 
 
 
-(EXC 02)
+%(EXC 02)
 
 recebeDados():- write('Digite seu nome aqui:'),
     			read(Nome),
@@ -375,7 +375,7 @@ recebeDados():- write('Digite seu nome aqui:'),
 
     
 
-(EXC 03)
+%(EXC 03)
 
 aluno(carla, cálculo, 100).
 aluno(fernanda, sistema,90).
@@ -410,7 +410,7 @@ nota(NomeAluno, Disciplina, Valor) :-
 
 
 
-(EXC 04)
+%(EXC 04)
 
 governou(joao, 1952, 1968).
 governou(jose, 1968, 1970).
@@ -429,7 +429,7 @@ presidente(Nome, Ano) :-
     ).
  
 
-(EXC 05)
+%(EXC 05)
 
 populacao(paisA, 203).
 populacao(paisB, 548).
@@ -455,7 +455,7 @@ densidade(Pais, Densidade) :-
     ).
 
 
-(EXC 06)
+%(EXC 06)
 
 %Escreva uma regra para o predicado sucessor(X, Y), que indica que o número X %é sucessor do número Y.
 
@@ -487,9 +487,9 @@ entre(X, A, B) :-
 
 
 
------------------------------- AULA 5 ------------------------------
+%------------------------------ AULA 5 ------------------------------
 
-(EXC 01)
+%(EXC 01)
 
 %estrada(Número,Origem,Destino)
 %a)
@@ -517,7 +517,7 @@ rotas(R, a) :- estrada(R, a, _).
 
 
 
-(EXC 02)
+%(EXC 02)
 
 %2) Construa uma base de dados sobre livros com pelo menos dez estruturas do tipo: 
 
@@ -584,7 +584,7 @@ autor_livro(Palavra) :-
 
 
 
-(EXC 03)
+%(EXC 03)
 
 %3) Usando a tabela d(0,zero), d(1,um), ..., d(9,nove), defina o predicado txt(D,P) que converte 
 %uma lista de dígitos numa lista de palavras.
@@ -608,7 +608,7 @@ txt([D | Digito)], [P | Palavra]).
 
 
 
-(EXC 04)
+%(EXC 04)
 
 % Construa uma base de dados sobre carros e seus proprietários com pelo menos dez estruturas do tipo: 
 
