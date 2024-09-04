@@ -1,4 +1,4 @@
-------- exc01 -------
+%------- exc01 -------
 fatorial(0,1).
 fatorial(N,F) :-
 	( N > 0,
@@ -7,7 +7,7 @@ fatorial(N,F) :-
 	  F is N*F1
 	).
 
-------- exc02 -------
+%------- exc02 -------
 
 caminho(a,b,5).
 caminho(b,e,25).
@@ -31,7 +31,7 @@ custoCaminho(Origem, Destino, Custo) :-
         Custo is CustoA1 + CustoA2
     ).
 
-------- exc03 -------
+%------- exc03 -------
 
 %calculoMDC(X,Y,Z).
 %calculoMDC(40,60,20). (Qual o caso base?)
