@@ -293,7 +293,7 @@ times_VCT('nrg', 2020, 'canadá', 6, 'sexta', 'monster').
 ano_fundacao(Time) :- times_VCT(Time, Ano,_,_,_,_), write(Ano).
 
 %Time X é brasileiro?
-time_brasileiro(Time) :- times_VCT(Time,_,'brasil',_,_,_).
+time_brasileiro(Time) :- times_VCT(Time,_,'brasil',_,_,_), !.
 
 % X é patrocinador de time Y?
 patrocina(Patrocinador, Time) :- times_VCT(Time,_,_,_,_,Patrocinador). 
